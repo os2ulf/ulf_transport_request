@@ -8,7 +8,7 @@
 /**
  * Implements hook_permissions_secure_permissions_roles().
  */
-function ulf_free_course_request_secure_permissions_roles() {
+function ulf_transport_request_secure_permissions_roles() {
   return array(
     'skole',
   );
