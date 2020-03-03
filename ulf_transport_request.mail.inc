@@ -11,7 +11,7 @@ function _transport_request_notify(EntityMetadataWrapper $wrapper, $action) {
 
   // Set fallback email
   $to = variable_get('site_mail');
-
+  
   switch($action) {
     case 'on_submit_user':
       $params['subject'] = t('Transportation request received', array(), array('langcode' => $language->language));
@@ -103,6 +103,10 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= '<strong>';
   $application .= '</p>';
 
+
+  $application .= '<h3>';
+  $application .= t('Starting place', array(), $translation_lang);
+  $application .= ':</h3>';
   $application .= '<p>';
   $application .= '<strong>';
   $application .= t('Address', array(), $translation_lang);
@@ -126,6 +130,27 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= '</p>';
 
   $application .= '<h3>';
+  $application .= t('Possible waypoint', array(), $translation_lang);
+  $application .= ':</h3>';
+  $application .= '<p>';
+  $application .= '<strong>';
+  $application .= t('Address', array(), $translation_lang);
+  $application .= ':</strong> ';
+  $application .= $wrapper->field_via_address->value();
+  $application .= '<br/>';
+  $application .= '<strong>';
+  $application .= t('Postal code and city', array(), $translation_lang);
+  $application .= ':</strong> ';
+  $application .= $wrapper->field_via_postal_code_city->label();
+  $application .= '<br/>';
+  $application .= '<strong>';
+  $application .= t('When should the bus run from the waypoint towards the excursion destination', array(), $translation_lang);
+  $application .= ':</strong> ';
+  $application .= $wrapper->field_via_departure->value();
+  $application .= '</p>';
+
+
+  $application .= '<h3>';
   $application .= t('Excursion', array(), $translation_lang);
   $application .= ':</h3>';
   $application .= '<p>';
@@ -138,24 +163,19 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= t('Postal code and city', array(), $translation_lang);
   $application .= ':</strong> ';
   $application .= $wrapper->field_excursion_postal_code_city->label();
-  $application .= '<br/>';
+  $application .= '</p>';
+
+  $application .= '<h3>';
+  $application .= t('Wish for the bus', array(), $translation_lang);
+  $application .= ':</h3>';
+  $application .= '<p>';
   $application .= '<strong>';
-  $application .= t('Arrival at excursion destination before returning home', array(), $translation_lang);
+  $application .= t('Should there be a toilet in the bus?', array(), $translation_lang);
   $application .= ':</strong> ';
-  $application .= $wrapper->field_arrival_excursion->value();
+  $application .= $wrapper->field_toilet_in_bus->value();
   $application .= '<br/>';
   $application .= '<strong>';
-  $application .= t('Do you want transportation home from excursion destinations', array(), $translation_lang);
-  $application .= ':</strong> ';
-  $application .= $wrapper->field_transport_from_excursions->value();
-  $application .= '<br/>';
-  $application .= '<strong>';
-  $application .= t('Departure time from excursion destinations', array(), $translation_lang);
-  $application .= ':</strong> ';
-  $application .= $wrapper->field_departure_from_excursion->value();
-  $application .= '<br/>';
-  $application .= '<strong>';
-  $application .= t('Need for luggage space', array(), $translation_lang);
+  $application .= t('Is space needed for luggage (other than handbags)?', array(), $translation_lang);
   $application .= ':</strong> ';
   $application .= $wrapper->field_luggage_space->value();
   $application .= '<br/>';
@@ -165,23 +185,45 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= $wrapper->field_luggage_extent->value();
   $application .= '<br/>';
   $application .= '<strong>';
-  $application .= t('Possibility of luggage or outer clothing in the bus while visiting the excursion destination', array(), $translation_lang);
+  $application .= t('Should it be possible to store luggage or outer clothing on the bus while visiting the excursion destination?', array(), $translation_lang);
   $application .= ':</strong> ';
   $application .= $wrapper->field_luggage_in_bus->value();
+  $application .= '</p>';
+
+  $application .= '<h3>';
+  $application .= t('Transport home', array(), $translation_lang);
+  $application .= ':</h3>';
+  $application .= '<p>';
+  $application .= '<strong>';
+  $application .= t('Do you want transportation home from excursion destinations', array(), $translation_lang);
+  $application .= ':</strong> ';
+  $application .= $wrapper->field_transport_from_excursions->value();
   $application .= '<br/>';
   $application .= '<strong>';
-  $application .= t('There must be a toilet in the bus', array(), $translation_lang);
+  $application .= t('When should the bus arrive at the destination before departure (include time for boarding)', array(), $translation_lang);
   $application .= ':</strong> ';
-  $application .= $wrapper->field_toilet_in_bus->value();
+  $application .= $wrapper->field_arrival_excursion->value();
   $application .= '<br/>';
+  $application .= '<strong>';
+  $application .= t('When should the bus run from the excursion destination', array(), $translation_lang);
+  $application .= ':</strong> ';
+  $application .= $wrapper->field_departure_from_excursion->value();
+  $application .= '<p/>';
+
+
+  $application .= '<h3>';
+  $application .= t('Incidentally', array(), $translation_lang);
+  $application .= ':</h3>';
+  $application .= '<p>';
   $application .= '<strong>';
   $application .= t('Any comments', array(), $translation_lang);
   $application .= ':</strong> ';
   $application .= $wrapper->field_comments->value();
-  $application .= '</p>';
+  $application .= '<p/>';
+
 
   $application .= '<h3>';
-  $application .= t('Contact person', array(), $translation_lang);
+  $application .= t('The order confirmation must be sent to the following contact person', array(), $translation_lang);
   $application .= ':</h3>';
   $application .= '<p>';
   $application .= '<strong>';
@@ -190,7 +232,7 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= $wrapper->field_contacts_name->value();
   $application .= '<br/>';
   $application .= '<strong>';
-  $application .= t('Work Mail', array(), $translation_lang);
+  $application .= t('Email', array(), $translation_lang);
   $application .= ':</strong> ';
   $application .= $wrapper->field_work_mail->label();
   $application .= '<br/>';
@@ -215,13 +257,9 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= $wrapper->field_contacts_address->value();
   $application .= '<br/>';
   $application .= '<strong>';
-  $application .= t('Postal code', array(), $translation_lang);
+  $application .= t('Postal code and city', array(), $translation_lang);
   $application .= ':</strong> ';
-  $application .= $wrapper->field_contacts_postal_code->value();
-  $application .= '<br/>';
-  $application .= t('City', array(), $translation_lang);
-  $application .= ':</strong> ';
-  $application .= $wrapper->field_contacts_city->value();
+  $application .= $wrapper->field_contact_postal_code_city->value();
   $application .= '</p>';
 
   return $application;

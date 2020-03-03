@@ -72,13 +72,13 @@ function ulf_transport_request_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_contacts_address'.
-  $field_bases['field_contacts_address'] = array(
+  // Exported field_base: 'field_contact_postal_code_city'.
+  $field_bases['field_contact_postal_code_city'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_contacts_address',
+    'field_name' => 'field_contact_postal_code_city',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -93,13 +93,13 @@ function ulf_transport_request_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_contacts_city'.
-  $field_bases['field_contacts_city'] = array(
+  // Exported field_base: 'field_contacts_address'.
+  $field_bases['field_contacts_address'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_contacts_city',
+    'field_name' => 'field_contacts_address',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -133,21 +133,6 @@ function ulf_transport_request_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
-  );
-
-  // Exported field_base: 'field_contacts_postal_code'.
-  $field_bases['field_contacts_postal_code'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_contacts_postal_code',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_departure_date'.
@@ -554,6 +539,69 @@ function ulf_transport_request_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_via_address'.
+  $field_bases['field_via_address'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_via_address',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_via_departure'.
+  $field_bases['field_via_departure'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_via_departure',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_via_postal_code_city'.
+  $field_bases['field_via_postal_code_city'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_via_postal_code_city',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_work_mail'.

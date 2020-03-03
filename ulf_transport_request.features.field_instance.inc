@@ -65,7 +65,7 @@ function ulf_transport_request_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_arrival_excursion',
-    'label' => 'Ankomst til udflugtsmål inden hjemrejse',
+    'label' => 'Hvornår skal bussen ankomme til udflugtsmålet inden afgang (indregn tid til påstigning)',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -80,7 +80,7 @@ function ulf_transport_request_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 12,
     ),
   );
 
@@ -118,7 +118,44 @@ function ulf_transport_request_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 17,
+      'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-transport_request-field_contact_postal_code_city'.
+  $field_instances['entityform-transport_request-field_contact_postal_code_city'] = array(
+    'bundle' => 'transport_request',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 31,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_postal_code_city',
+    'label' => 'Postnummer og by',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 24,
     ),
   );
 
@@ -155,44 +192,7 @@ function ulf_transport_request_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 23,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-transport_request-field_contacts_city'.
-  $field_instances['entityform-transport_request-field_contacts_city'] = array(
-    'bundle' => 'transport_request',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 24,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_contacts_city',
-    'label' => 'By',
-    'required' => 1,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 25,
+      'weight' => 21,
     ),
   );
 
@@ -229,48 +229,7 @@ function ulf_transport_request_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 18,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-transport_request-field_contacts_postal_code'.
-  $field_instances['entityform-transport_request-field_contacts_postal_code'] = array(
-    'bundle' => 'transport_request',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 23,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_contacts_postal_code',
-    'label' => 'Postnummer',
-    'required' => 1,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 24,
+      'weight' => 16,
     ),
   );
 
@@ -342,8 +301,8 @@ function ulf_transport_request_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_departure_from_excursion',
-    'label' => 'Afgangstidspunkt fra udflugtsmål',
-    'required' => 0,
+    'label' => 'Hvornår skal bussen køre fra udflugtsmålet',
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -357,7 +316,7 @@ function ulf_transport_request_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -393,7 +352,7 @@ function ulf_transport_request_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 21,
+      'weight' => 19,
     ),
   );
 
@@ -541,7 +500,7 @@ function ulf_transport_request_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 22,
+      'weight' => 20,
     ),
   );
 
@@ -580,7 +539,7 @@ function ulf_transport_request_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 14,
+      'weight' => 18,
     ),
   );
 
@@ -602,7 +561,7 @@ function ulf_transport_request_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_luggage_in_bus',
-    'label' => 'Mulighed for opbevaring af bagage eller overtøj i bussen mens udflugtsmålet besøges',
+    'label' => 'Ønskes der mulighed for opbevaring af bagage eller overtøj i bussen, imens udflugtsmålet besøges?',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -612,7 +571,7 @@ function ulf_transport_request_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 15,
+      'weight' => 19,
     ),
   );
 
@@ -634,7 +593,7 @@ function ulf_transport_request_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_luggage_space',
-    'label' => 'Behov for plads til bagage (udover håndtaske)',
+    'label' => 'Er der behov for plads til bagage (udover håndtasker)?',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -644,7 +603,7 @@ function ulf_transport_request_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 13,
+      'weight' => 17,
     ),
   );
 
@@ -717,7 +676,7 @@ function ulf_transport_request_field_default_field_instances() {
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'telwidget',
-      'weight' => 20,
+      'weight' => 18,
     ),
   );
 
@@ -825,7 +784,7 @@ function ulf_transport_request_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_starting_place_arrival',
-    'label' => 'Ankomst til startsted',
+    'label' => 'Hvornår skal bussen ankomme til startstedet (indregn tid til påstigning)',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -862,7 +821,7 @@ function ulf_transport_request_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_starting_place_departure',
-    'label' => 'Afgangstid for startsted',
+    'label' => 'Hvornår skal bussen køre fra startstedet',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -899,7 +858,7 @@ function ulf_transport_request_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_toilet_in_bus',
-    'label' => 'Der skal være toilet i bussen',
+    'label' => 'Skal der være toilet i bussen?',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -945,6 +904,116 @@ function ulf_transport_request_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-transport_request-field_via_address'.
+  $field_instances['entityform-transport_request-field_via_address'] = array(
+    'bundle' => 'transport_request',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 28,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_via_address',
+    'label' => 'Adresse',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-transport_request-field_via_departure'.
+  $field_instances['entityform-transport_request-field_via_departure'] = array(
+    'bundle' => 'transport_request',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 30,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_via_departure',
+    'label' => 'Hvornår skal bussen køre fra viapunktet mod udflugtsmålet',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-transport_request-field_via_postal_code_city'.
+  $field_instances['entityform-transport_request-field_via_postal_code_city'] = array(
+    'bundle' => 'transport_request',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 29,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_via_postal_code_city',
+    'label' => 'Postnummer og by',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'entityform-transport_request-field_work_mail'.
   $field_instances['entityform-transport_request-field_work_mail'] = array(
     'bundle' => 'transport_request',
@@ -962,7 +1031,7 @@ function ulf_transport_request_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_work_mail',
-    'label' => 'Arbejdsmail',
+    'label' => 'E-mail',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -973,35 +1042,34 @@ function ulf_transport_request_field_default_field_instances() {
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'emailwidget',
-      'weight' => 19,
+      'weight' => 17,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Adresse');
-  t('Afgangstid for startsted');
-  t('Afgangstidspunkt fra udflugtsmål');
-  t('Ankomst til startsted');
-  t('Ankomst til udflugtsmål inden hjemrejse');
   t('Antal passagerer');
-  t('Arbejdsmail');
-  t('Behov for plads til bagage (udover håndtaske)');
-  t('By');
-  t('Der skal være toilet i bussen');
+  t('E-mail');
   t('EAN-nr.');
+  t('Er der behov for plads til bagage (udover håndtasker)?');
   t('Eventuelle bemærkninger');
   t('Hjemrejsedato');
+  t('Hvornår skal bussen ankomme til startstedet (indregn tid til påstigning)');
+  t('Hvornår skal bussen ankomme til udflugtsmålet inden afgang (indregn tid til påstigning)');
+  t('Hvornår skal bussen køre fra startstedet');
+  t('Hvornår skal bussen køre fra udflugtsmålet');
+  t('Hvornår skal bussen køre fra viapunktet mod udflugtsmålet');
   t('Institution/afdeling');
   t('Jeg giver samtykke');
-  t('Mulighed for opbevaring af bagage eller overtøj i bussen mens udflugtsmålet besøges');
   t('Navn og efternavn');
   t('Omfanget af bagage');
-  t('Postnummer');
   t('Postnummer og by');
+  t('Skal der være toilet i bussen?');
   t('Telefon');
   t('Udrejsedato');
   t('Ønskes der hjemtransport fra udflugtsmålet?');
+  t('Ønskes der mulighed for opbevaring af bagage eller overtøj i bussen, imens udflugtsmålet besøges?');
 
   return $field_instances;
 }
