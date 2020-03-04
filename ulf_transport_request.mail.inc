@@ -169,12 +169,12 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= '<strong>';
   $application .= t('Should there be a toilet in the bus?', array(), $translation_lang);
   $application .= ':</strong> ';
-  $application .= $wrapper->field_toilet_in_bus->value();
+  $application .= booleanValues($wrapper->field_toilet_in_bus->value());
   $application .= '<br/>';
   $application .= '<strong>';
   $application .= t('Is space needed for luggage (other than handbags)?', array(), $translation_lang);
   $application .= ':</strong> ';
-  $application .= $wrapper->field_luggage_space->value();
+  $application .= booleanValues($wrapper->field_luggage_space->value());
   $application .= '<br/>';
   $application .= '<strong>';
   $application .= t('The extent of luggage', array(), $translation_lang);
@@ -184,7 +184,7 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= '<strong>';
   $application .= t('Should it be possible to store luggage or outer clothing on the bus while visiting the excursion destination?', array(), $translation_lang);
   $application .= ':</strong> ';
-  $application .= $wrapper->field_luggage_in_bus->value();
+  $application .= booleanValues($wrapper->field_luggage_in_bus->value());
   $application .= '</p>';
 
   $application .= '<h3>';
@@ -194,7 +194,7 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= '<strong>';
   $application .= t('Do you want transportation home from excursion destinations', array(), $translation_lang);
   $application .= ':</strong> ';
-  $application .= $wrapper->field_transport_from_excursions->value();
+  $application .= booleanValues($wrapper->field_transport_from_excursions->value());
   $application .= '<br/>';
   $application .= '<strong>';
   $application .= t('When should the bus arrive at the destination before departure (include time for boarding)', array(), $translation_lang);
@@ -263,7 +263,9 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
 }
 
 function booleanValues($value) {
-  if($value === 1) {
-    return $
+  if($value == TRUE) {
+    return t('Yes');
   }
+
+  return t('No');
 }
