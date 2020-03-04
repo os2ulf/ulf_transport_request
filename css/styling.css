@@ -42,8 +42,8 @@
 }
 
 .tr-form > .entityform {
-  -ms-flex: 0 1 45%; /* IE 10 */
-  flex: 0 1 45%;
+  -ms-flex: 0 1 50%; /* IE 10 */
+  flex: 0 1 50%;
   order: 1;
 }
 
