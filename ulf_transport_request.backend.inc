@@ -71,14 +71,6 @@ function ulf_transport_request_form_backend(array $form, array &$form_state) {
     '#weight' => 0,
   );
 
-  $form['frontend_texts']['utr_gdpr'] = array(
-    '#type' => 'text_format',
-    '#title' => t('GDPR text'),
-    '#default_value' => variable_get('utr_gdpr', array('value' => '', 'format' => NULL))['value'],
-    '#format' => 'editor',
-    '#weight' => 0,
-  );
-
   $form['frontend_texts']['utr_receipt'] = array(
     '#type' => 'text_format',
     '#title' => t('Receipt text'),

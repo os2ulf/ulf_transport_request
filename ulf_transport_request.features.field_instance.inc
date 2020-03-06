@@ -430,43 +430,6 @@ function ulf_transport_request_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-transport_request-field_gdpr'.
-  $field_instances['entityform-transport_request-field_gdpr'] = array(
-    'bundle' => 'transport_request',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 27,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_gdpr',
-    'label' => 'Jeg giver samtykke',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 26,
-    ),
-  );
-
   // Exported field_instance:
   // 'entityform-transport_request-field_institution_department'.
   $field_instances['entityform-transport_request-field_institution_department'] = array(
@@ -1061,7 +1024,6 @@ function ulf_transport_request_field_default_field_instances() {
   t('Hvornår skal bussen køre fra udflugtsmålet');
   t('Hvornår skal bussen køre fra viapunktet mod udflugtsmålet');
   t('Institution/afdeling');
-  t('Jeg giver samtykke');
   t('Navn og efternavn');
   t('Omfanget af bagage');
   t('Postnummer og by');
