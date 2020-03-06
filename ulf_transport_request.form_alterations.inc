@@ -12,8 +12,4 @@ function ulf_transport_request_form_transport_request_entityform_edit_form_alter
   $intro_text = variable_get('utr_intro', array('value' => '', 'format' => NULL))['value'];
   $form['#prefix'] = '<div class="tr-form"><div class="user-message--wrapper"><div class="user-message">' . $intro_text . '</div></div>';
   $form['#suffix'] = '</div>';
-
-  // Set GDPR and Cancellation texts.
-//  $form['field_conditions']['#prefix'] = variable_get('utr_cancellation', array('value' => '', 'format' => NULL))['value'];
-  $form['field_gdpr']['#prefix'] = variable_get('utr_gdpr', array('value' => '', 'format' => NULL))['value'];
 }
