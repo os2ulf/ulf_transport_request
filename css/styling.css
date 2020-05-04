@@ -109,3 +109,12 @@
 .field-name-field-rfc-send-mail > div label {
   display: inline-block;
 }
+
+.tr-form label.option {
+  display: inline-block;
+  margin-left:5px;
+}
+
+.tr-form .form-radios .form-type-radio {
+  margin-top: 5px;
+}
