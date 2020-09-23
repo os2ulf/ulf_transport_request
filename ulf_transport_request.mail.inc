@@ -231,7 +231,7 @@ function _tr_build_mail_confirmation(EntityMetadataWrapper $wrapper) {
   $application .= '<strong>';
   $application .= t('Email', array(), $translation_lang);
   $application .= ':</strong> ';
-  $application .= $wrapper->field_work_mail->value();
+  $application .= _reverseMailEncrypt($wrapper->field_work_mail->value());
   $application .= '<br/>';
   $application .= '<strong>';
   $application .= t('Phone', array(), $translation_lang);
